@@ -437,6 +437,15 @@
   .profile-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; border-radius: 50%; }
   .profile-photo-logo { background: var(--teal-deep); border: none; }
   .profile-photo-logo span { font-family: "Shippori Mincho B1", serif; font-size: 20px; color: var(--ivory); letter-spacing: 0.06em; }
+  .profile-photo-rect {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    border-radius: 10px;
+  }
+  .profile-photo-rect img { border-radius: 10px; }
+  .profile-photo-rect span { font-size: 13px; }
+  .profile-panel .choir-name { font-size: 19px; font-family: "Shippori Mincho B1", serif; margin: 0 0 14px; color: var(--teal-deep); }
   .profile-panel .role { font-size: 12px; color: var(--gold); letter-spacing: 0.06em; margin: 0 0 6px; }
   .profile-panel .role .role-en { font-size: 10px; opacity: 0.75; margin-left: 4px; }
   .profile-panel .who { font-size: 19px; font-family: "Shippori Mincho B1", serif; margin: 0 0 16px; }
@@ -536,17 +545,40 @@
   @media (max-width: 640px) { .choir-grid { grid-template-columns: 1fr; } }
   .choir-card {
     background: var(--card);
-    padding: 22px 24px;
+    padding: 20px 0 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    cursor: pointer;
   }
   .choir-card .name {
     font-family: "Shippori Mincho B1", serif;
-    font-size: 17px;
-    margin: 0;
+    font-size: 16px;
+    margin: 0 20px 14px;
     color: var(--teal-deep);
   }
+  .choir-card-row { display: flex; align-items: stretch; }
+  .choir-card-info {
+    flex: 1 1 50%;
+    min-width: 0;
+    padding: 0 18px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .choir-card .accompanist { font-size: 12px; color: var(--ink-soft); margin: 0; line-height: 1.6; }
+  .choir-thumb {
+    flex: 0 0 50%;
+    aspect-ratio: 4 / 3;
+    background: var(--ivory);
+    border: 1px dashed var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .choir-thumb span { font-size: 10px; color: var(--ink-soft); line-height: 1.4; text-align: center; }
+  .choir-thumb img { width: 100%; height: 100%; object-fit: cover; }
   .choir-card .bio {
     font-size: 13.5px;
     color: var(--ink-soft);
@@ -555,23 +587,23 @@
   }
   .choir-card .sns {
     display: flex;
-    gap: 10px;
-    margin-top: auto;
+    flex-wrap: wrap;
+    gap: 8px;
   }
   .choir-card .sns a {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    font-size: 12px;
+    font-size: 11.5px;
     color: var(--gold);
     text-decoration: none;
     border: 1px solid var(--gold-soft);
-    padding: 5px 12px;
+    padding: 4px 10px;
     border-radius: 999px;
     letter-spacing: 0.03em;
   }
   .choir-card .sns a:hover { background: var(--gold-soft); color: var(--teal-deep); }
-  .choir-card .sns .none { font-size: 12px; color: var(--ink-soft); opacity: 0.6; }
+  .choir-card .sns .none { font-size: 11.5px; color: var(--ink-soft); opacity: 0.6; }
 
   /* ---- Tickets ---- */
   .ticket-panel {
@@ -821,59 +853,129 @@
       <p class="desc">今回の演奏会に参加する7つの合唱団です。</p>
     </div>
     <div class="choir-grid">
-      <div class="choir-card">
+      <div class="choir-card" onclick="toggleProfile('choir1')">
         <p class="name">senza Nome</p>
-        <p class="bio">団の紹介文がここに入ります。</p>
-        <div class="sns">
-          <a href="#" target="_blank" rel="noopener">Instagram</a>
+        <div class="choir-card-row">
+          <div class="choir-card-info">
+            <div class="sns">
+              <a href="#" target="_blank" rel="noopener">Instagram</a>
           <a href="#" target="_blank" rel="noopener">X</a>
+            </div>
+          </div>
+          <div class="choir-thumb"><span>写真<br>準備中</span></div>
         </div>
       </div>
-      <div class="choir-card">
+      <div class="choir-card" onclick="toggleProfile('choir2')">
         <p class="name">アンサンブルSZIA</p>
-        <p class="bio">団の紹介文がここに入ります。</p>
-        <div class="sns">
-          <a href="#" target="_blank" rel="noopener">Instagram</a>
+        <div class="choir-card-row">
+          <div class="choir-card-info">
+            <div class="sns">
+              <a href="#" target="_blank" rel="noopener">Instagram</a>
           <span class="none">X未設定</span>
+            </div>
+          </div>
+          <div class="choir-thumb"><span>写真<br>準備中</span></div>
         </div>
       </div>
-      <div class="choir-card">
+      <div class="choir-card" onclick="toggleProfile('choir3')">
         <p class="name">Ensemble Evergreen</p>
-        <p class="bio">団の紹介文がここに入ります。</p>
-        <div class="sns">
-          <a href="#" target="_blank" rel="noopener">Instagram</a>
+        <div class="choir-card-row">
+          <div class="choir-card-info">
+            <div class="sns">
+              <a href="#" target="_blank" rel="noopener">Instagram</a>
           <a href="#" target="_blank" rel="noopener">X</a>
+            </div>
+          </div>
+          <div class="choir-thumb"><span>写真<br>準備中</span></div>
         </div>
       </div>
-      <div class="choir-card">
+      <div class="choir-card" onclick="toggleProfile('choir4')">
         <p class="name">Ensemble Polano</p>
-        <p class="bio">団の紹介文がここに入ります。</p>
-        <div class="sns">
-          <span class="none">SNS未設定</span>
+        <div class="choir-card-row">
+          <div class="choir-card-info">
+            <div class="sns">
+              <span class="none">SNS未設定</span>
+            </div>
+          </div>
+          <div class="choir-thumb"><span>写真<br>準備中</span></div>
         </div>
       </div>
-      <div class="choir-card">
+      <div class="choir-card" onclick="toggleProfile('choir5')">
         <p class="name">越の国室内合唱団 VOX ORATTA</p>
-        <p class="bio">団の紹介文がここに入ります。</p>
-        <div class="sns">
-          <a href="#" target="_blank" rel="noopener">Instagram</a>
+        <div class="choir-card-row">
+          <div class="choir-card-info">
+            <div class="sns">
+              <a href="#" target="_blank" rel="noopener">Instagram</a>
+            </div>
+          </div>
+          <div class="choir-thumb"><span>写真<br>準備中</span></div>
         </div>
       </div>
-      <div class="choir-card">
+      <div class="choir-card" onclick="toggleProfile('choir6')">
         <p class="name">合唱団 KIRARA⭐︎Mixed</p>
-        <p class="bio">団の紹介文がここに入ります。</p>
-        <div class="sns">
-          <a href="#" target="_blank" rel="noopener">Instagram</a>
+        <div class="choir-card-row">
+          <div class="choir-card-info">
+            <div class="sns">
+              <a href="#" target="_blank" rel="noopener">Instagram</a>
           <a href="#" target="_blank" rel="noopener">X</a>
+            </div>
+          </div>
+          <div class="choir-thumb"><span>写真<br>準備中</span></div>
         </div>
       </div>
-      <div class="choir-card">
+      <div class="choir-card" onclick="toggleProfile('choir7')">
         <p class="name">Sparkling a Live!</p>
-        <p class="bio">団の紹介文がここに入ります。</p>
-        <div class="sns">
-          <span class="none">SNS未設定</span>
+        <div class="choir-card-row">
+          <div class="choir-card-info">
+            <div class="sns">
+              <span class="none">SNS未設定</span>
+            </div>
+          </div>
+          <div class="choir-thumb"><span>写真<br>準備中</span></div>
         </div>
       </div>
+    </div>
+    <div class="profile-panel" id="profile-choir1">
+      <button class="profile-close" onclick="closeZoom(event)">✕</button>
+      <div class="profile-photo profile-photo-rect"><span>写真<br>準備中</span></div>
+      <p class="choir-name">senza Nome</p>
+      <p class="bio">団の紹介文がここに入ります。</p>
+    </div>
+    <div class="profile-panel" id="profile-choir2">
+      <button class="profile-close" onclick="closeZoom(event)">✕</button>
+      <div class="profile-photo profile-photo-rect"><span>写真<br>準備中</span></div>
+      <p class="choir-name">アンサンブルSZIA</p>
+      <p class="bio">団の紹介文がここに入ります。</p>
+    </div>
+    <div class="profile-panel" id="profile-choir3">
+      <button class="profile-close" onclick="closeZoom(event)">✕</button>
+      <div class="profile-photo profile-photo-rect"><span>写真<br>準備中</span></div>
+      <p class="choir-name">Ensemble Evergreen</p>
+      <p class="bio">団の紹介文がここに入ります。</p>
+    </div>
+    <div class="profile-panel" id="profile-choir4">
+      <button class="profile-close" onclick="closeZoom(event)">✕</button>
+      <div class="profile-photo profile-photo-rect"><span>写真<br>準備中</span></div>
+      <p class="choir-name">Ensemble Polano</p>
+      <p class="bio">団の紹介文がここに入ります。</p>
+    </div>
+    <div class="profile-panel" id="profile-choir5">
+      <button class="profile-close" onclick="closeZoom(event)">✕</button>
+      <div class="profile-photo profile-photo-rect"><span>写真<br>準備中</span></div>
+      <p class="choir-name">越の国室内合唱団 VOX ORATTA</p>
+      <p class="bio">団の紹介文がここに入ります。</p>
+    </div>
+    <div class="profile-panel" id="profile-choir6">
+      <button class="profile-close" onclick="closeZoom(event)">✕</button>
+      <div class="profile-photo profile-photo-rect"><span>写真<br>準備中</span></div>
+      <p class="choir-name">合唱団 KIRARA⭐︎Mixed</p>
+      <p class="bio">団の紹介文がここに入ります。</p>
+    </div>
+    <div class="profile-panel" id="profile-choir7">
+      <button class="profile-close" onclick="closeZoom(event)">✕</button>
+      <div class="profile-photo profile-photo-rect"><span>写真<br>準備中</span></div>
+      <p class="choir-name">Sparkling a Live!</p>
+      <p class="bio">団の紹介文がここに入ります。</p>
     </div>
   </section>
 
