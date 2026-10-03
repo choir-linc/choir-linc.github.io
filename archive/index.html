@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>過去の演奏会 | 合唱団LINC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #F5F2E9;
+    --ivory-deep: #ECE7D8;
+    --card: #FAF8F1;
+    --teal-deep: #163B40;
+    --teal: #2E656C;
+    --teal-mid: #4C868C;
+    --teal-soft: #A9C7C7;
+    --gold: #B08F52;
+    --gold-soft: #D8C393;
+    --ink: #16262A;
+    --ink-soft: #4B5D5F;
+    --line: rgba(22,38,42,0.14);
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ivory: #10191B;
+      --ivory-deep: #0C1416;
+      --card: #142023;
+      --teal-deep: #E8F1F0;
+      --teal: #9FC4C6;
+      --teal-mid: #7FAEB2;
+      --teal-soft: #3C5D5F;
+      --gold: #D8C08A;
+      --gold-soft: #B08F52;
+      --ink: #EDE9DC;
+      --ink-soft: #AEBEBF;
+      --line: rgba(237,233,220,0.14);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ivory: #10191B;
+    --ivory-deep: #0C1416;
+    --card: #142023;
+    --teal-deep: #E8F1F0;
+    --teal: #9FC4C6;
+    --teal-mid: #7FAEB2;
+    --teal-soft: #3C5D5F;
+    --gold: #D8C08A;
+    --gold-soft: #B08F52;
+    --ink: #EDE9DC;
+    --ink-soft: #AEBEBF;
+    --line: rgba(237,233,220,0.14);
+  }
+  html { scroll-behavior: smooth; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+  header.site {
+    border-bottom: 1px solid var(--line);
+    padding: 18px 0;
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(245,242,233,0.92);
+    backdrop-filter: blur(6px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) header.site { background: rgba(16,25,27,0.92); }
+  }
+  header.site .nav { max-width: 860px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+  header.site .mark { font-family: "Shippori Mincho B1", serif; font-size: 17px; letter-spacing: 0.04em; }
+  header.site .mark a { text-decoration: none; }
+  header.site .back { font-size: 13.5px; text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 2px; color: var(--teal-deep); }
+  main { padding: 70px 0 100px; }
+  .section-head { margin-bottom: 40px; }
+  .section-head .num { color: var(--gold); font-size: 12.5px; letter-spacing: 0.08em; margin: 0 0 8px; }
+  .section-head h1 {
+    font-family: "Shippori Mincho B1", serif;
+    font-size: clamp(24px, 4vw, 30px);
+    margin: 0;
+    color: var(--teal-deep);
+  }
+  .section-head p.desc { color: var(--ink-soft); margin: 12px 0 0; max-width: 56ch; font-size: 14.5px; }
+  .archive-list { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .archive-item {
+    background: var(--card);
+    padding: 22px 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .archive-item:hover { background: var(--ivory-deep); }
+  .archive-item .title { font-family: "Shippori Mincho B1", serif; font-size: 16px; margin: 0 0 4px; color: var(--teal-deep); }
+  .archive-item .meta { font-size: 13px; color: var(--ink-soft); margin: 0; }
+  .archive-item .arrow { color: var(--gold); font-size: 14px; white-space: nowrap; }
+  .empty-note {
+    background: var(--card);
+    border: 1px dashed var(--line);
+    padding: 32px 26px;
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+  footer { border-top: 1px solid var(--line); padding: 28px 0; font-size: 13px; color: var(--ink-soft); }
+  footer a { text-decoration: underline; text-underline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <div class="mark"><a href="../">合唱団 LINC</a></div>
+    <a class="back" href="../">トップへ戻る</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="num">Archive</p>
+      <h1>過去の演奏会</h1>
+      <p class="desc">合唱団LINCがこれまでに開催した演奏会の記録です。終了した演奏会の情報は、こちらに順次掲載していきます。</p>
+    </div>
+
+    <div class="archive-list">
+      <!-- 演奏会が終了したら、下記のような1項目をここに追加してください。
+      <a class="archive-item" href="2027/">
+        <div>
+          <p class="title">合唱団LINC第5回演奏会「惑星のままひかりを放つ」</p>
+          <p class="meta">2027年2月14日（日）／杉並公会堂 大ホール</p>
+        </div>
+        <span class="arrow">記録を見る →</span>
+      </a>
+      -->
+    </div>
+
+    <p class="empty-note">現在、過去の演奏会記録はまだありません。次回の演奏会終了後、ここに記録が追加される予定です。</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">合唱団LINC実行委員会</div>
+</footer>
+
+</body>
+</html>
