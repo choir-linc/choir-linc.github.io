@@ -351,7 +351,88 @@
     font-size: 13.5px;
   }
   .poem-list div .idx { display: block; font-family: "Shippori Mincho B1", serif; color: var(--gold); font-size: 15px; margin-bottom: 6px; }
+  .poem-list div { position: relative; cursor: pointer; transition: background 0.2s; }
+  .poem-list div:hover { background: var(--ivory); }
+  .poem-list .poem-tap { position: absolute; top: 8px; right: 8px; font-size: 10px; color: var(--ink-soft); opacity: 0.45; }
   @media (max-width: 560px) { .poem-list { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ---- Poem quote overlay ---- */
+  .poem-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+  .poem-overlay.open { opacity: 1; pointer-events: auto; }
+  .poem-overlay .bg { position: absolute; inset: 0; }
+  .poem-overlay .scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10,20,22,0.1) 0%, rgba(10,20,22,0.2) 40%, rgba(10,20,22,0.78) 100%);
+  }
+  .poem-overlay .poem-content {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 40px 28px 56px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .poem-overlay .roman { font-family: "Shippori Mincho B1", serif; font-size: 13px; letter-spacing: 0.12em; color: var(--gold-soft); margin: 0 0 14px; }
+  .poem-overlay .quote-text {
+    font-family: "Shippori Mincho B1", serif;
+    font-size: 20px;
+    line-height: 2;
+    color: var(--ivory);
+    margin: 0 0 22px;
+    text-shadow: 0 2px 14px rgba(0,0,0,0.4);
+  }
+  .poem-overlay .quote-title { font-size: 13px; color: var(--ivory); opacity: 0.85; margin: 0; }
+  .poem-overlay .poem-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.5);
+    background: rgba(0,0,0,0.25);
+    color: var(--ivory);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .poem-bg-1 {
+    background:
+      radial-gradient(circle at 50% 100%, rgba(255,214,170,0.65) 0%, rgba(255,194,140,0.25) 30%, rgba(0,0,0,0) 55%),
+      linear-gradient(180deg, #16262a 0%, #1f3f3d 40%, #3c6a5f 75%, #cfa66b 100%);
+  }
+  .poem-bg-2 {
+    background:
+      repeating-radial-gradient(circle at 50% 55%, rgba(220,245,240,0.3) 0, rgba(220,245,240,0.3) 2px, rgba(0,0,0,0) 3px, rgba(0,0,0,0) 26px),
+      radial-gradient(circle at 50% 55%, rgba(200,235,225,0.5) 0%, rgba(140,195,185,0.15) 40%, rgba(0,0,0,0) 65%),
+      linear-gradient(160deg, #0d2326 0%, #1b3f3f 45%, #2f6264 80%, #5a9793 100%);
+  }
+  .poem-bg-3 {
+    background:
+      radial-gradient(circle at 20% 25%, rgba(255,236,190,0.5) 0%, rgba(255,236,190,0) 10%),
+      radial-gradient(circle at 72% 15%, rgba(255,236,190,0.35) 0%, rgba(255,236,190,0) 8%),
+      radial-gradient(circle at 45% 55%, rgba(255,236,190,0.3) 0%, rgba(255,236,190,0) 9%),
+      radial-gradient(circle at 80% 70%, rgba(255,236,190,0.25) 0%, rgba(255,236,190,0) 7%),
+      radial-gradient(circle at 15% 75%, rgba(255,236,190,0.2) 0%, rgba(255,236,190,0) 6%),
+      linear-gradient(170deg, #0c1a16 0%, #16302a 40%, #244a3d 75%, #39624f 100%);
+  }
+  .poem-bg-4 {
+    background:
+      radial-gradient(circle at 30% 50%, rgba(255,225,170,0.55) 0%, rgba(255,225,170,0) 35%),
+      radial-gradient(circle at 70% 50%, rgba(255,225,170,0.55) 0%, rgba(255,225,170,0) 35%),
+      radial-gradient(circle at 50% 50%, rgba(255,240,210,0.4) 0%, rgba(255,240,210,0) 45%),
+      linear-gradient(135deg, #1b2e2a 0%, #203f36 40%, #3f5b3f 70%, #8a7a45 100%);
+  }
 
   /* ---- Performers ---- */
   .performer-grid {
@@ -825,14 +906,56 @@
     <div class="story">
       <p>混声合唱とピアノのための組曲『惑星のままひかりを放つ』は、三角みづ紀氏の詩集『週末のアルペジオ』から、宮本正太郎氏が選んだ4篇の詩によって構成されています。</p>
       <div class="poem-list">
-        <div><span class="idx">Ⅰ</span>季節の再生</div>
-        <div><span class="idx">Ⅱ</span>待つ日</div>
-        <div><span class="idx">Ⅲ</span>寡黙な森</div>
-        <div><span class="idx">Ⅳ</span>創造のはじまり</div>
+        <div onclick="openPoem(1)"><span class="idx">Ⅰ</span>季節の再生<span class="poem-tap">⤢</span></div>
+        <div onclick="openPoem(2)"><span class="idx">Ⅱ</span>待つ日<span class="poem-tap">⤢</span></div>
+        <div onclick="openPoem(3)"><span class="idx">Ⅲ</span>寡黙な森<span class="poem-tap">⤢</span></div>
+        <div onclick="openPoem(4)"><span class="idx">Ⅳ</span>創造のはじまり<span class="poem-tap">⤢</span></div>
       </div>
       <p style="margin-top:28px;">それぞれの詩に、異なるかたちで現れる「光」。<br>4篇をひとつの組曲として包む『惑星のままひかりを放つ』というタイトルは、宮本氏の選詩を受け、三角氏によって新たに名付けられました。</p>
     </div>
   </section>
+
+  <div class="poem-overlay" id="poem-overlay-1">
+    <div class="bg poem-bg-1"></div>
+    <div class="scrim"></div>
+    <button class="poem-close" onclick="closePoem(1)">✕</button>
+    <div class="poem-content">
+      <p class="roman">Ⅰ</p>
+      <p class="quote-text">地球の裏側で<br>世界の片隅で<br>いつもの路地裏で<br>わたしが目覚める</p>
+      <p class="quote-title">季節の再生 ── 三角みづ紀『週末のアルペジオ』より</p>
+    </div>
+  </div>
+  <div class="poem-overlay" id="poem-overlay-2">
+    <div class="bg poem-bg-2"></div>
+    <div class="scrim"></div>
+    <button class="poem-close" onclick="closePoem(2)">✕</button>
+    <div class="poem-content">
+      <p class="roman">Ⅱ</p>
+      <p class="quote-text">水をもとめるものは<br>また喉が渇くだろう<br>でも　きみが与える水は<br>ぼくのなかで泉になって<br>えんえんと湧きつづける。</p>
+      <p class="quote-title">待つ日 ── 三角みづ紀『週末のアルペジオ』より</p>
+    </div>
+  </div>
+  <div class="poem-overlay" id="poem-overlay-3">
+    <div class="bg poem-bg-3"></div>
+    <div class="scrim"></div>
+    <button class="poem-close" onclick="closePoem(3)">✕</button>
+    <div class="poem-content">
+      <p class="roman">Ⅲ</p>
+      <p class="quote-text">夏が口をつぐんで<br>まぶしさは<br>逃げたものにも平等にそそぐ</p>
+      <p class="quote-title">寡黙な森 ── 三角みづ紀『週末のアルペジオ』より</p>
+    </div>
+  </div>
+  <div class="poem-overlay" id="poem-overlay-4">
+    <div class="bg poem-bg-4"></div>
+    <div class="scrim"></div>
+    <button class="poem-close" onclick="closePoem(4)">✕</button>
+    <div class="poem-content">
+      <p class="roman">Ⅳ</p>
+      <p class="quote-text">もはや<br>ふたりではなく<br>ひとり<br>ぼくは　きみが<br>結びあわせたものを<br>引き離してはいけない。</p>
+      <p class="quote-title">創造のはじまり ── 三角みづ紀『週末のアルペジオ』より</p>
+    </div>
+  </div>
+
   <section id="performers">
     <div class="program-inner">
     <div class="section-head">
@@ -1120,6 +1243,22 @@
     carouselState[id] = i;
     carouselUpdate(id);
   }
+  function openPoem(n) {
+    document.getElementById('poem-overlay-' + n).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePoem(n) {
+    document.getElementById('poem-overlay-' + n).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.poem-overlay').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      if (e.target === el || e.target.classList.contains('scrim') || e.target.classList.contains('bg')) {
+        el.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+  });
 </script>
 
 </body>
