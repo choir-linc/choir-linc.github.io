@@ -300,6 +300,8 @@
     white-space: nowrap;
   }
   .quick-info .price-note { font-size: 11px; color: var(--ink-soft); margin-left: 4px; }
+  .quick-info .venue-access { grid-column: 2; margin: 0 0 14px; padding: 0 18px; }
+  .quick-info .venue-access a { font-size: 11px; color: var(--ink-soft); text-decoration: underline; text-underline-offset: 2px; }
   @media (max-width: 560px) {
     .quick-info > div { grid-template-columns: 76px 1fr; }
   }
@@ -397,6 +399,16 @@
   .program-card .stage-desc .line { display: block; }
   .program-card .stage-desc .line.hang { text-indent: -0.5em; }
   .program-card .stage-desc .line.gap { margin-top: 1.8em; }
+  #program {
+    background: linear-gradient(120deg, var(--ivory) 0%, var(--ivory) 42%, var(--teal-soft) 78%, var(--teal-mid) 100%);
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+  .program-inner { max-width: 860px; margin: 0 auto; padding: 0 24px; }
 
   /* ---- Choirs ---- */
   .choir-chips { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -545,6 +557,7 @@
       <div>
         <p class="label">会場</p>
         <p class="value"><span class="venue-name">杉並公会堂　大ホール</span></p>
+        <p class="venue-access"><a href="https://maps.app.goo.gl/ww8KwfoDwMeoiEYC9" target="_blank" rel="noopener">荻窪駅北口（JR中央線・総武線・東京メトロ丸ノ内線）より徒歩7分</a></p>
       </div>
       <div>
         <p class="label">入場料</p>
@@ -562,6 +575,7 @@
   </section>
 
   <section id="program">
+    <div class="program-inner">
     <div class="section-head">
       <p class="num">Program</p>
       <h2>プログラム構成</h2>
@@ -617,6 +631,7 @@
           <span>ピアノ：宮本 正太郎</span>
         </div>
       </div>
+    </div>
     </div>
   </section>
 
