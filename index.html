@@ -323,18 +323,6 @@
   .section-head p.desc { color: var(--ink-soft); margin: 10px 0 0; max-width: 56ch; font-size: 14.5px; }
 
   /* ---- Concert info ---- */
-  .info-list { list-style: none; margin: 0; padding: 0; }
-  .info-list li {
-    display: grid;
-    grid-template-columns: 130px 1fr;
-    gap: 20px;
-    padding: 17px 0;
-    border-top: 1px solid var(--line);
-  }
-  .info-list li:last-child { border-bottom: 1px solid var(--line); }
-  .info-list dt { color: var(--ink-soft); font-size: 13px; padding-top: 2px; }
-  .info-list dd { margin: 0; font-size: 15.5px; }
-  @media (max-width: 560px) { .info-list li { grid-template-columns: 1fr; gap: 4px; } }
 
   /* ---- Work story ---- */
   .story p { margin: 0 0 18px; font-size: 15px; color: var(--ink); max-width: 62ch; }
@@ -488,7 +476,25 @@
     <p class="flyer-caption">画像をタップすると拡大表示されます</p>
     <div class="zoom-backdrop" id="zoomBackdrop" onclick="closeZoom()"></div>
 
+    <div class="cta-row">
+      <a class="btn primary" href="#tickets">チケット情報を見る</a>
+      <a class="btn ghost" href="#work">作品について読む</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section id="concert">
+    <div class="section-head">
+      <p class="num">Concert Information</p>
+      <h2>演奏会情報</h2>
+    </div>
     <div class="quick-info">
+      <div>
+        <p class="label">演奏会名</p>
+        <p class="value">合唱団LINC 第5回演奏会</p>
+      </div>
       <div>
         <p class="label">日時</p>
         <p class="value">
@@ -506,30 +512,15 @@
         <p class="label">入場料</p>
         <p class="value"><span class="num-lg">2,000</span>円 <span class="price-note">（全席自由）</span></p>
       </div>
+      <div>
+        <p class="label">主催</p>
+        <p class="value">合唱団LINC実行委員会</p>
+      </div>
+      <div>
+        <p class="label">後援</p>
+        <p class="value">決まり次第掲載します</p>
+      </div>
     </div>
-
-    <div class="cta-row">
-      <a class="btn primary" href="#tickets">チケット情報を見る</a>
-      <a class="btn ghost" href="#work">作品について読む</a>
-    </div>
-  </div>
-</div>
-
-<div class="wrap">
-
-  <section id="concert">
-    <div class="section-head">
-      <p class="num">Concert Information</p>
-      <h2>演奏会情報</h2>
-    </div>
-    <ul class="info-list">
-      <li><dt>演奏会名</dt><dd>合唱団LINC 第5回演奏会</dd></li>
-      <li><dt>日時</dt><dd>2027年2月14日（日）　開場 14:30／開演 15:00</dd></li>
-      <li><dt>会場</dt><dd>杉並公会堂　大ホール</dd></li>
-      <li><dt>入場料</dt><dd>2,000円</dd></li>
-      <li><dt>主催</dt><dd>合唱団LINC実行委員会</dd></li>
-      <li><dt>後援</dt><dd>決まり次第掲載します</dd></li>
-    </ul>
   </section>
 
   <section id="work">
