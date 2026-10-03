@@ -368,7 +368,7 @@
   /* ---- Program ---- */
   .program-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 1px;
     background: var(--line);
     border: 1px solid var(--line);
@@ -380,6 +380,19 @@
   .program-card .composer-list { display: flex; flex-wrap: wrap; gap: 8px; }
   .program-card .composer-list span { background: var(--ivory); border: 1px solid var(--line); font-size: 12.5px; padding: 5px 10px; color: var(--ink); }
   @media (max-width: 560px) { .program-grid { grid-template-columns: 1fr; } }
+  .composer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-top: 2px;
+  }
+  .composer-card { background: var(--ivory); padding: 16px 18px; }
+  .composer-card .composer-name { font-family: "Shippori Mincho B1", serif; font-size: 14px; color: var(--teal-deep); margin: 0 0 8px; }
+  .composer-card .work-list { margin: 0; padding-left: 16px; font-size: 12px; color: var(--ink-soft); line-height: 1.65; }
+  .composer-card .work-list li { margin-bottom: 4px; }
+  @media (max-width: 560px) { .composer-grid { grid-template-columns: 1fr; } }
 
   /* ---- Choirs ---- */
   .choir-chips { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -574,12 +587,35 @@
       <div class="program-card">
         <p class="stage-num">Stage 1</p>
         <h3>各団単独演奏ステージ</h3>
-        <p class="stage-desc">参加7団体が、それぞれ単独で演奏するステージです。宮本正太郎氏の作品に加え、下記の作曲家による作品を取り上げる予定です。</p>
-        <div class="composer-list">
-          <span>宮本正太郎</span>
-          <span>川浦義広</span>
-          <span>田畠佑一</span>
-          <span>根岸宏輔</span>
+        <p class="stage-desc">宮本正太郎氏の作品に加え、朝日作曲賞受賞歴のある若き作曲家の作品を演奏いたします。</p>
+        <div class="composer-grid">
+          <div class="composer-card">
+            <p class="composer-name">宮本正太郎</p>
+            <ul class="work-list">
+              <li>混声合唱とピアノのための組曲「あなたのなかのわたしのために」より</li>
+              <li>女声合唱とピアノのための組曲「花たちへの讃歌」より</li>
+            </ul>
+          </div>
+          <div class="composer-card">
+            <p class="composer-name">川浦義広</p>
+            <ul class="work-list">
+              <li>混声合唱とピアノのための組曲「記憶の保養地」より</li>
+            </ul>
+          </div>
+          <div class="composer-card">
+            <p class="composer-name">根岸宏輔</p>
+            <ul class="work-list">
+              <li>混声合唱組曲「いのちのかたしろ」より</li>
+              <li>混声合唱とピアノのための「STARS」（作詩：田中章義）</li>
+            </ul>
+          </div>
+          <div class="composer-card">
+            <p class="composer-name">田畠佑一</p>
+            <ul class="work-list">
+              <li>混声合唱曲集「心に浮かぶ雲に」より</li>
+              <li>無伴奏混声合唱のための「子守唄」（作詩：村上昭夫）《未出版》</li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="program-card">
