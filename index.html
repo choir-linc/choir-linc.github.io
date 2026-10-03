@@ -361,11 +361,82 @@
     background: var(--line);
     border: 1px solid var(--line);
   }
-  .performer-card { background: var(--card); padding: 20px 22px; }
+  .performer-card { background: var(--card); padding: 18px 20px; display: flex; align-items: center; gap: 14px; cursor: pointer; }
   .performer-card .role { font-size: 12px; color: var(--gold); margin: 0 0 6px; letter-spacing: 0.06em; }
   .performer-card .who { font-size: 16px; margin: 0; font-family: "Shippori Mincho B1", serif; }
+  .performer-thumb {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--ivory);
+    border: 1px dashed var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .performer-thumb span { font-size: 9px; color: var(--ink-soft); line-height: 1.3; text-align: center; }
   @media (max-width: 560px) { .performer-grid { grid-template-columns: 1fr; } }
   .solo-note { margin-top: 22px; font-size: 14px; color: var(--ink-soft); }
+
+  /* ---- Performer profile panel ---- */
+  .profile-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    width: 88vw;
+    max-width: 360px;
+    max-height: 86vh;
+    overflow-y: auto;
+    background: var(--card);
+    border: 1px solid var(--line);
+    padding: 36px 26px 28px;
+    z-index: 101;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s, transform 0.25s;
+    text-align: center;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  }
+  .profile-panel.open { opacity: 1; pointer-events: auto; transform: translate(-50%, -50%) scale(1); }
+  .profile-photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin: 0 auto 18px;
+    background: var(--ivory);
+    border: 1px dashed var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .profile-photo span { font-size: 12px; color: var(--ink-soft); line-height: 1.6; }
+  .profile-panel .role { font-size: 12px; color: var(--gold); letter-spacing: 0.06em; margin: 0 0 6px; }
+  .profile-panel .who { font-size: 19px; font-family: "Shippori Mincho B1", serif; margin: 0 0 16px; }
+  .profile-panel .bio { font-size: 13.5px; color: var(--ink-soft); line-height: 1.8; margin: 0; text-align: left; }
+  .profile-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+  #performers {
+    background: linear-gradient(120deg, var(--teal-mid) 0%, var(--teal-soft) 14%, var(--ivory) 38%, var(--ivory) 62%, var(--teal-soft) 86%, var(--teal-mid) 100%);
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+  #performers .section-head .num { color: var(--ivory); }
 
   /* ---- Program ---- */
   .program-grid {
@@ -653,13 +724,36 @@
     </div>
   </section>
   <section id="performers">
+    <div class="program-inner">
     <div class="section-head">
       <p class="num">Performers</p>
       <h2>出演</h2>
     </div>
     <div class="performer-grid">
-      <div class="performer-card"><p class="role">指揮</p><p class="who">仁階堂 孝</p></div>
-      <div class="performer-card"><p class="role">ピアノ</p><p class="who">宮本 正太郎</p></div>
+      <div class="performer-card" onclick="toggleProfile('conductor')">
+        <div class="performer-thumb"><span>写真<br>準備中</span></div>
+        <div class="performer-text"><p class="role">指揮</p><p class="who">仁階堂 孝</p></div>
+      </div>
+      <div class="performer-card" onclick="toggleProfile('piano')">
+        <div class="performer-thumb"><span>写真<br>準備中</span></div>
+        <div class="performer-text"><p class="role">ピアノ</p><p class="who">宮本 正太郎</p></div>
+      </div>
+    </div>
+    </div>
+
+    <div class="profile-panel" id="profile-conductor">
+      <button class="profile-close" onclick="closeZoom(event)">✕</button>
+      <div class="profile-photo"><span>写真<br>準備中</span></div>
+      <p class="role">指揮</p>
+      <p class="who">仁階堂 孝</p>
+      <p class="bio">プロフィール文がここに入ります。</p>
+    </div>
+    <div class="profile-panel" id="profile-piano">
+      <button class="profile-close" onclick="closeZoom(event)">✕</button>
+      <div class="profile-photo"><span>写真<br>準備中</span></div>
+      <p class="role">ピアノ</p>
+      <p class="who">宮本 正太郎</p>
+      <p class="bio">プロフィール文がここに入ります。</p>
     </div>
   </section>
 
@@ -768,10 +862,17 @@
     backdrop.classList.add('show');
     document.body.style.overflow = 'hidden';
   }
-  function closeZoom() {
+  function closeZoom(e) {
+    if (e) e.stopPropagation();
     document.querySelectorAll('.zoomed').forEach(function (el) { el.classList.remove('zoomed'); });
+    document.querySelectorAll('.profile-panel.open').forEach(function (el) { el.classList.remove('open'); });
     document.getElementById('zoomBackdrop').classList.remove('show');
     document.body.style.overflow = '';
+  }
+  function toggleProfile(id) {
+    document.getElementById('profile-' + id).classList.add('open');
+    document.getElementById('zoomBackdrop').classList.add('show');
+    document.body.style.overflow = 'hidden';
   }
 </script>
 
