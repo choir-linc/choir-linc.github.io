@@ -365,6 +365,22 @@
   @media (max-width: 560px) { .performer-grid { grid-template-columns: 1fr; } }
   .solo-note { margin-top: 22px; font-size: 14px; color: var(--ink-soft); }
 
+  /* ---- Program ---- */
+  .program-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .program-card { background: var(--card); padding: 26px 24px; }
+  .program-card .stage-num { font-size: 12px; color: var(--gold); margin: 0 0 8px; letter-spacing: 0.06em; }
+  .program-card h3 { font-family: "Shippori Mincho B1", serif; font-size: 16px; color: var(--teal-deep); margin: 0 0 10px; }
+  .program-card p.stage-desc { font-size: 13.5px; color: var(--ink-soft); margin: 0 0 14px; }
+  .program-card .composer-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .program-card .composer-list span { background: var(--ivory); border: 1px solid var(--line); font-size: 12.5px; padding: 5px 10px; color: var(--ink); }
+  @media (max-width: 560px) { .program-grid { grid-template-columns: 1fr; } }
+
   /* ---- Choirs ---- */
   .choir-chips { display: flex; flex-wrap: wrap; gap: 10px; }
   .choir-chips span {
@@ -455,6 +471,7 @@
       <div class="dd-list">
         <a href="#concert">演奏会情報</a>
         <a href="#work">委嘱作品について</a>
+        <a href="#program">プログラム</a>
         <a href="#performers">出演</a>
         <a href="#choirs">参加団体</a>
         <a href="#tickets">チケット</a>
@@ -547,6 +564,36 @@
     </div>
   </section>
 
+  <section id="program">
+    <div class="section-head">
+      <p class="num">Program</p>
+      <h2>プログラム構成</h2>
+      <p class="desc">演奏会は、各団単独演奏ステージと合同演奏ステージの2部構成でお届けします。</p>
+    </div>
+    <div class="program-grid">
+      <div class="program-card">
+        <p class="stage-num">Stage 1</p>
+        <h3>各団単独演奏ステージ</h3>
+        <p class="stage-desc">参加7団体が、それぞれ単独で演奏するステージです。宮本正太郎氏の作品に加え、下記の作曲家による作品を取り上げる予定です。</p>
+        <div class="composer-list">
+          <span>宮本正太郎</span>
+          <span>川浦義広</span>
+          <span>田畠佑一</span>
+          <span>根岸宏輔</span>
+        </div>
+      </div>
+      <div class="program-card">
+        <p class="stage-num">Stage 2</p>
+        <h3>合同演奏ステージ</h3>
+        <p class="stage-desc">参加7団体合同で、委嘱作品『惑星のままひかりを放つ』を初演します。</p>
+        <div class="composer-list">
+          <span>指揮：仁階堂 孝</span>
+          <span>ピアノ：宮本 正太郎</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="performers">
     <div class="section-head">
       <p class="num">Performers</p>
@@ -556,7 +603,6 @@
       <div class="performer-card"><p class="role">指揮</p><p class="who">仁階堂 孝</p></div>
       <div class="performer-card"><p class="role">ピアノ</p><p class="who">宮本 正太郎</p></div>
     </div>
-    <p class="solo-note">各団単独演奏ステージでは、宮本正太郎氏の作品に加え、川浦義広氏、田畠佑一氏、根岸宏輔氏の作品を取り上げる予定です。</p>
   </section>
 
   <section id="choirs">
