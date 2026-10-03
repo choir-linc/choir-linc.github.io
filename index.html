@@ -636,14 +636,19 @@
     background: var(--card);
     color: var(--ink);
     padding: 36px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 28px;
+    align-items: center;
     border: 1px solid var(--line);
   }
   .ticket-panel h3 { font-family: "Shippori Mincho B1", serif; font-size: 20px; margin: 0 0 14px; color: var(--teal-deep); }
   .ticket-panel .price-note { font-size: 12px; color: var(--ink-soft); font-family: "Zen Kaku Gothic New", sans-serif; margin-left: 2px; }
   .ticket-panel p { font-size: 14px; color: var(--ink-soft); margin: 0 0 8px; }
   .ticket-panel p:last-child { margin-bottom: 0; }
-  .ticket-panel p a { color: var(--teal-deep); text-decoration: underline; text-underline-offset: 2px; }
+  .ticket-panel .btn.primary { background: var(--teal-deep); border-color: var(--teal-deep); color: var(--ivory); }
   .ticket-note { font-size: 13px; color: var(--ink-soft); margin-top: 16px; }
+  @media (max-width: 640px) { .ticket-panel { grid-template-columns: 1fr; } }
 
   footer {
     padding: 44px 0 calc(44px + env(safe-area-inset-bottom, 0px));
@@ -1030,11 +1035,11 @@
       <div class="ticket-panel">
         <div>
           <h3>入場料 2,000円 <span class="price-note">（全席自由）</span></h3>
-          <p>電子チケット→<a href="https://teket.jp/20056/79229" target="_blank" rel="noopener">teket</a></p>
+          <p>電子チケットはteketよりご購入いただけます。</p>
           <p>紙チケット→お近くの出演者、参加団体、またはページ下部のお問い合わせ先までご連絡ください。</p>
         </div>
+        <a class="btn primary" href="https://teket.jp/20056/79229" target="_blank" rel="noopener" style="justify-self:start;">電子チケットの購入 → teket</a>
       </div>
-      <p class="ticket-note">※ チケットに関するお問い合わせは、各参加団体または実行委員会までご連絡ください。</p>
     </div>
   </section>
 
