@@ -352,7 +352,8 @@
   .poem-list div .idx { display: block; font-family: "Shippori Mincho B1", serif; color: var(--gold); font-size: 15px; margin-bottom: 6px; }
   .poem-list div { position: relative; cursor: pointer; transition: background 0.2s; }
   .poem-list div:hover { background: var(--ivory); }
-  .poem-list .poem-tap { position: absolute; top: 8px; right: 8px; font-size: 10px; color: var(--ink-soft); opacity: 0.45; }
+  .poem-list .poem-tap { position: absolute; top: 8px; right: 8px; font-size: 10px; color: var(--gold); opacity: 0.65; }
+  .story p.poem-hint { font-size: 11.5px; color: var(--gold); letter-spacing: 0.02em; margin: -6px 0 10px; }
   @media (max-width: 560px) { .poem-list { grid-template-columns: repeat(2, 1fr); } }
 
   /* ---- Poem quote overlay ---- */
@@ -892,6 +893,7 @@
     </div>
     <div class="story">
       <p>混声合唱とピアノのための組曲『惑星のままひかりを放つ』は、三角みづ紀氏の詩集『週末のアルペジオ』から、宮本正太郎氏が選んだ4篇の詩によって構成されています。</p>
+      <p class="poem-hint">タイトルをタップすると、詩の一節がひらきます。</p>
       <div class="poem-list">
         <div onclick="openPoem(1)"><span class="idx">Ⅰ</span>季節の再生<span class="poem-tap">⤢</span></div>
         <div onclick="openPoem(2)"><span class="idx">Ⅱ</span>待つ日<span class="poem-tap">⤢</span></div>
