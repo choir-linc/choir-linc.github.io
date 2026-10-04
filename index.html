@@ -471,13 +471,19 @@
     animation: poemDawnBrighten 7s ease-out forwards;
   }
   @keyframes poemWindowSway {
-    0% { transform: translateX(-4%) rotate(-2deg); opacity: 0.4; }
-    50% { transform: translateX(3%) rotate(1deg); opacity: 0.85; }
-    100% { transform: translateX(-4%) rotate(-2deg); opacity: 0.4; }
+    0% { transform: rotate(13deg); opacity: 0.4; }
+    50% { transform: rotate(19deg); opacity: 0.85; }
+    100% { transform: rotate(13deg); opacity: 0.4; }
   }
   .light-2 {
-    inset: -15% -10% -15% -35%;
-    background: linear-gradient(115deg, rgba(255,250,228,0.95) 0%, rgba(255,250,228,0.95) 16%, rgba(255,250,228,0.55) 30%, rgba(255,250,228,0) 48%);
+    inset: auto;
+    top: -15%;
+    left: -35%;
+    width: 85%;
+    height: 65%;
+    background: linear-gradient(100deg, rgba(255,250,228,0.95) 0%, rgba(255,250,228,0.6) 42%, rgba(255,250,228,0) 80%);
+    filter: blur(10px);
+    transform-origin: 8% 15%;
     animation: poemWindowSway 6.5s ease-in-out infinite;
   }
   @keyframes poemForestRays {
@@ -492,11 +498,13 @@
     animation: poemForestRays 5.5s ease-in-out infinite;
   }
   @keyframes poemSunriseGrow {
-    0% { opacity: 0; transform: scale(0.8); }
-    100% { opacity: 1; transform: scale(1); }
+    0% { opacity: 0; transform: scaleX(0.2) scaleY(0.5); }
+    100% { opacity: 1; transform: scaleX(1) scaleY(1); }
   }
   .light-4 {
-    background: radial-gradient(ellipse 80% 24% at 50% 58%, rgba(255,222,165,1) 0%, rgba(255,218,158,0.55) 42%, rgba(255,218,158,0.2) 65%, rgba(255,218,158,0) 85%);
+    background: radial-gradient(ellipse 72% 11% at 50% 58%, rgba(255,226,172,1) 0%, rgba(255,222,165,0.75) 28%, rgba(255,218,158,0.4) 52%, rgba(255,218,158,0.15) 72%, rgba(255,218,158,0) 90%);
+    filter: blur(5px);
+    transform-origin: 50% 58%;
     animation: poemSunriseGrow 7s ease-out forwards;
   }
 
