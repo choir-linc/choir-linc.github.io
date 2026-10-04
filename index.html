@@ -462,39 +462,42 @@
     pointer-events: none;
   }
   @keyframes poemDawnBrighten {
+    0% { opacity: 0; transform: scaleY(0.6); }
+    100% { opacity: 1; transform: scaleY(1); }
+  }
+  .light-1 {
+    transform-origin: 50% 100%;
+    background: radial-gradient(ellipse 130% 65% at 50% 100%, rgba(255,248,228,0.98) 0%, rgba(255,232,185,0.85) 32%, rgba(255,222,170,0.5) 55%, rgba(255,222,170,0.15) 75%, rgba(255,222,170,0) 92%);
+    animation: poemDawnBrighten 7s ease-out forwards;
+  }
+  @keyframes poemWindowSway {
+    0% { transform: translateX(-4%) rotate(-2deg); opacity: 0.4; }
+    50% { transform: translateX(3%) rotate(1deg); opacity: 0.85; }
+    100% { transform: translateX(-4%) rotate(-2deg); opacity: 0.4; }
+  }
+  .light-2 {
+    inset: -15% -10% -15% -35%;
+    background: linear-gradient(115deg, rgba(255,250,228,0.95) 0%, rgba(255,250,228,0.95) 16%, rgba(255,250,228,0.55) 30%, rgba(255,250,228,0) 48%);
+    animation: poemWindowSway 6.5s ease-in-out infinite;
+  }
+  @keyframes poemForestRays {
     0%, 100% { opacity: 0.3; }
     50% { opacity: 0.9; }
   }
-  .light-1 {
-    background: radial-gradient(ellipse 95% 50% at 50% 88%, rgba(255,246,222,0.95) 0%, rgba(255,226,176,0.55) 40%, rgba(255,226,176,0) 72%);
-    animation: poemDawnBrighten 8s ease-in-out infinite;
-  }
-  @keyframes poemWindowSway {
-    0% { transform: translateX(-6%) rotate(-1.5deg); opacity: 0.35; }
-    50% { transform: translateX(6%) rotate(1.5deg); opacity: 0.85; }
-    100% { transform: translateX(-6%) rotate(-1.5deg); opacity: 0.35; }
-  }
-  .light-2 {
-    inset: -15% -25%;
-    background: linear-gradient(100deg, rgba(255,250,228,0) 28%, rgba(255,250,228,0.9) 46%, rgba(255,250,228,0.9) 54%, rgba(255,250,228,0) 72%);
-    animation: poemWindowSway 7s ease-in-out infinite;
-  }
-  @keyframes poemForestRays {
-    0%, 100% { opacity: 0.25; transform: translateY(0); }
-    50% { opacity: 0.85; transform: translateY(-3%); }
-  }
   .light-3 {
-    inset: -5% -10%;
-    background: repeating-linear-gradient(98deg, rgba(255,255,255,0.8) 0px, rgba(255,255,255,0.8) 4px, rgba(255,255,255,0) 4px, rgba(255,255,255,0) 36px);
+    background:
+      linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.65) 18%, rgba(255,255,255,0) 34%),
+      linear-gradient(107deg, rgba(255,255,255,0) 38%, rgba(255,255,255,0.5) 52%, rgba(255,255,255,0) 66%),
+      linear-gradient(94deg, rgba(255,255,255,0) 66%, rgba(255,255,255,0.4) 78%, rgba(255,255,255,0) 90%);
     animation: poemForestRays 5.5s ease-in-out infinite;
   }
   @keyframes poemSunriseGrow {
-    0%, 100% { opacity: 0.32; transform: scale(0.9); }
-    50% { opacity: 0.95; transform: scale(1.08); }
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
   }
   .light-4 {
-    background: radial-gradient(ellipse 70% 20% at 50% 58%, rgba(255,218,158,0.98) 0%, rgba(255,218,158,0.4) 45%, rgba(255,218,158,0) 75%);
-    animation: poemSunriseGrow 8s ease-in-out infinite;
+    background: radial-gradient(ellipse 80% 24% at 50% 58%, rgba(255,222,165,1) 0%, rgba(255,218,158,0.55) 42%, rgba(255,218,158,0.2) 65%, rgba(255,218,158,0) 85%);
+    animation: poemSunriseGrow 7s ease-out forwards;
   }
 
   /* ---- Performers ---- */
@@ -1322,6 +1325,12 @@
   function openPoem(n) {
     document.getElementById('poem-overlay-' + n).classList.add('open');
     document.body.style.overflow = 'hidden';
+    var lightEl = document.querySelector('#poem-overlay-' + n + ' .light');
+    if (lightEl) {
+      lightEl.style.animation = 'none';
+      void lightEl.offsetWidth;
+      lightEl.style.animation = '';
+    }
   }
   function closePoem(n) {
     document.getElementById('poem-overlay-' + n).classList.remove('open');
