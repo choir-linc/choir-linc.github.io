@@ -498,13 +498,12 @@
     animation: poemForestRays 5.5s ease-in-out infinite;
   }
   @keyframes poemSunriseGrow {
-    0% { opacity: 0; transform: scaleX(0.2) scaleY(0.5); }
-    100% { opacity: 1; transform: scaleX(1) scaleY(1); }
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
   }
   .light-4 {
-    background: radial-gradient(ellipse 72% 11% at 50% 58%, rgba(255,226,172,1) 0%, rgba(255,222,165,0.75) 28%, rgba(255,218,158,0.4) 52%, rgba(255,218,158,0.15) 72%, rgba(255,218,158,0) 90%);
-    filter: blur(5px);
-    transform-origin: 50% 58%;
+    transform-origin: 58% 56%;
+    background: radial-gradient(ellipse 120% 60% at 58% 56%, rgba(255,230,180,0.98) 0%, rgba(255,222,165,0.8) 32%, rgba(255,218,158,0.45) 55%, rgba(255,218,158,0.15) 75%, rgba(255,218,158,0) 92%);
     animation: poemSunriseGrow 7s ease-out forwards;
   }
 
