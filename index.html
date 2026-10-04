@@ -1219,7 +1219,11 @@
     dots.forEach(function (d, i) { d.classList.toggle('active', i === idx); });
     if (id === 'choir7' && idx === 0) {
       var gifEl = document.getElementById('sparkling-gif');
-      if (gifEl) { gifEl.src = gifEl.src; }
+      if (gifEl) {
+        var gifSrc = gifEl.src;
+        gifEl.src = '';
+        window.setTimeout(function () { gifEl.src = gifSrc; }, 20);
+      }
     }
   }
   function carouselMove(id, dir) {
