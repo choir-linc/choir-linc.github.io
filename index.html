@@ -619,8 +619,10 @@
   .carousel-row { display: flex; align-items: center; gap: 6px; }
   .carousel { position: relative; flex: 1 1 auto; min-width: 0; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; background: var(--ivory); }
   .carousel-track { display: flex; height: 100%; transition: transform 0.35s ease; }
-  .carousel-slide { flex: 0 0 100%; width: 100%; height: 100%; }
-  .carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .carousel-slide { flex: 0 0 100%; width: 100%; height: 100%; position: relative; overflow: hidden; }
+  /* 縦長・横長どちらの写真も切れずに全体表示し、余白には同じ写真をぼかして敷く */
+  .carousel-slide .slide-bg { position: absolute; inset: -24px; background-size: cover; background-position: center; filter: blur(18px); }
+  .carousel-slide img { position: relative; width: 100%; height: 100%; object-fit: contain; display: block; }
   .carousel-arrow { flex: 0 0 26px; width: 26px; height: 26px; border-radius: 50%; background: var(--ivory); border: 1px solid var(--line); color: var(--teal-deep); font-size: 13px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
   .carousel-dots { display: flex; justify-content: center; gap: 6px; margin: 10px 0 18px; }
   .carousel-dots button { width: 6px; height: 6px; border-radius: 50%; border: none; background: var(--line); padding: 0; cursor: pointer; }
@@ -1336,6 +1338,15 @@
     document.body.style.overflow = 'hidden';
   }
   var carouselState = {};
+  // 各スライドの写真の裏に、ぼかした同じ写真を敷く(GIFは枠にぴったりなので対象外)
+  document.querySelectorAll('.carousel-slide').forEach(function (slide) {
+    var img = slide.querySelector('img');
+    if (!img || /^data:image\/gif/.test(img.getAttribute('src') || '')) return;
+    var bg = document.createElement('div');
+    bg.className = 'slide-bg';
+    bg.style.backgroundImage = 'url("' + img.getAttribute('src') + '")';
+    slide.insertBefore(bg, img);
+  });
   function carouselUpdate(id) {
     var track = document.getElementById('track-' + id);
     var dots = document.querySelectorAll('#dots-' + id + ' button');
