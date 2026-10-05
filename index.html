@@ -835,6 +835,17 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-YBB8N0916B');
+
+  // チケット購入ボタン(teket)のクリックを計測
+  document.addEventListener('click', function (e) {
+    var el = e.target && e.target.closest ? e.target.closest('.teket-btn') : null;
+    if (!el) return;
+    gtag('event', 'ticket_click', {
+      link_url: el.href,
+      event_category: 'ticket',
+      transport_type: 'beacon'
+    });
+  });
 </script>
 </head>
 <body>
