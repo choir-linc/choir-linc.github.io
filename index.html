@@ -506,23 +506,19 @@
     95.6% { opacity: 0.38; }
     100% { opacity: 0.31; }
   }
-  /* 詩④: 写真の太陽(右寄り・画面の約57%の高さ)から光が広がる。拡大縮小は使わず、3層の光を順に重ねて広がりを表現 */
+  /* 詩④: 太陽(右寄り・画面の約57%の高さ)を中心に、画面全体が日の出の光で明るくなる。輪郭が出ないようガウス状になだらかに減衰させ、拡大縮小は使わない */
   @keyframes poemSunGlow {
     0% { opacity: 0; }
     100% { opacity: 1; }
   }
-  .light-4 .glow { position: absolute; inset: 0; opacity: 0; }
-  .light-4 .g1 {
-    background: radial-gradient(ellipse 22% 14% at 74% 57%, rgba(255,246,215,0.95) 0%, rgba(255,246,215,0) 100%);
-    animation: poemSunGlow 3s ease-out forwards;
+  .light-4 .glow { position: absolute; inset: 0; opacity: 0; mix-blend-mode: screen; }
+  .light-4 .g-wash {
+    background: radial-gradient(circle farthest-corner at 74% 57%, rgba(255,244,214,0.400) 0%, rgba(255,244,214,0.397) 8%, rgba(255,244,214,0.389) 17%, rgba(255,244,214,0.375) 25%, rgba(255,244,214,0.357) 33%, rgba(255,244,214,0.336) 42%, rgba(255,244,214,0.312) 50%, rgba(255,244,214,0.287) 58%, rgba(255,244,214,0.262) 67%, rgba(255,244,214,0.238) 75%, rgba(255,244,214,0.215) 83%, rgba(255,244,214,0.194) 92%, rgba(255,244,214,0.175) 100%);
+    animation: poemSunGlow 10s ease-in-out forwards;
   }
-  .light-4 .g2 {
-    background: radial-gradient(ellipse 48% 30% at 74% 57%, rgba(255,246,215,0.55) 0%, rgba(255,246,215,0.25) 40%, rgba(255,246,215,0) 100%);
-    animation: poemSunGlow 5s ease-out 1.5s forwards;
-  }
-  .light-4 .g3 {
-    background: radial-gradient(ellipse 95% 60% at 74% 57%, rgba(255,246,215,0.35) 0%, rgba(255,246,215,0.15) 45%, rgba(255,246,215,0) 100%);
-    animation: poemSunGlow 7s ease-out 3s forwards;
+  .light-4 .g-bloom {
+    background: radial-gradient(circle farthest-corner at 74% 57%, rgba(255,244,214,0.850) 0%, rgba(255,244,214,0.787) 8%, rgba(255,244,214,0.624) 17%, rgba(255,244,214,0.424) 25%, rgba(255,244,214,0.247) 33%, rgba(255,244,214,0.123) 42%, rgba(255,244,214,0.053) 50%, rgba(255,244,214,0.019) 58%, rgba(255,244,214,0.006) 67%, rgba(255,244,214,0.002) 75%, rgba(255,244,214,0.000) 83%, rgba(255,244,214,0.000) 92%, rgba(255,244,214,0.000) 100%);
+    animation: poemSunGlow 7s ease-out 1s forwards;
   }
 
   /* ---- Performers ---- */
@@ -1062,7 +1058,7 @@
   <div class="poem-overlay" id="poem-overlay-4">
     <div class="bg poem-bg-4"></div>
     <div class="scrim"></div>
-    <div class="light light-4"><span class="glow g3"></span><span class="glow g2"></span><span class="glow g1"></span></div>
+    <div class="light light-4"><span class="glow g-wash"></span><span class="glow g-bloom"></span></div>
     <button class="poem-close" onclick="closePoem(4)">✕</button>
     <div class="poem-content">
       <p class="roman">Ⅳ</p>
