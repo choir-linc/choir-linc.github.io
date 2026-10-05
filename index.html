@@ -506,10 +506,23 @@
     95.6% { opacity: 0.38; }
     100% { opacity: 0.31; }
   }
-  .light-4 {
-    transform-origin: 75% 100%;
-    background: radial-gradient(ellipse 130% 65% at 75% 100%, rgba(255,248,228,0.98) 0%, rgba(255,232,185,0.85) 32%, rgba(255,222,170,0.5) 55%, rgba(255,222,170,0.15) 75%, rgba(255,222,170,0) 92%);
-    animation: poemDawnBrighten 7s ease-out forwards;
+  /* 詩④: 写真の太陽(右寄り・画面の約57%の高さ)から光が広がる。拡大縮小は使わず、3層の光を順に重ねて広がりを表現 */
+  @keyframes poemSunGlow {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  .light-4 .glow { position: absolute; inset: 0; opacity: 0; }
+  .light-4 .g1 {
+    background: radial-gradient(ellipse 22% 14% at 74% 57%, rgba(255,246,215,0.95) 0%, rgba(255,246,215,0) 100%);
+    animation: poemSunGlow 3s ease-out forwards;
+  }
+  .light-4 .g2 {
+    background: radial-gradient(ellipse 48% 30% at 74% 57%, rgba(255,246,215,0.55) 0%, rgba(255,246,215,0.25) 40%, rgba(255,246,215,0) 100%);
+    animation: poemSunGlow 5s ease-out 1.5s forwards;
+  }
+  .light-4 .g3 {
+    background: radial-gradient(ellipse 95% 60% at 74% 57%, rgba(255,246,215,0.35) 0%, rgba(255,246,215,0.15) 45%, rgba(255,246,215,0) 100%);
+    animation: poemSunGlow 7s ease-out 3s forwards;
   }
 
   /* ---- Performers ---- */
@@ -1049,7 +1062,7 @@
   <div class="poem-overlay" id="poem-overlay-4">
     <div class="bg poem-bg-4"></div>
     <div class="scrim"></div>
-    <div class="light light-4"></div>
+    <div class="light light-4"><span class="glow g3"></span><span class="glow g2"></span><span class="glow g1"></span></div>
     <button class="poem-close" onclick="closePoem(4)">✕</button>
     <div class="poem-content">
       <p class="roman">Ⅳ</p>
@@ -1358,9 +1371,10 @@
     document.body.style.overflow = 'hidden';
     var lightEl = document.querySelector('#poem-overlay-' + n + ' .light');
     if (lightEl) {
-      lightEl.style.animation = 'none';
+      var restartEls = [lightEl].concat(Array.prototype.slice.call(lightEl.querySelectorAll('.glow')));
+      restartEls.forEach(function (el) { el.style.animation = 'none'; });
       void lightEl.offsetWidth;
-      lightEl.style.animation = '';
+      restartEls.forEach(function (el) { el.style.animation = ''; });
     }
   }
   function closePoem(n) {
