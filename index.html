@@ -918,14 +918,14 @@
   #opening .op-title .op-tl2 { width: 100%; margin-top: 2%; }
   /* シーン3: LINCを画面の縦中央に置き、前後の行はLINCを基準に配置 */
   #opening .op-s3 { position: absolute; inset: 0; }
-  #opening .op-s3 .op-center { top: calc(50% - 0.33em); font-size: min(21vw, 13vh); line-height: 1; }
+  #opening .op-s3 .op-center { top: calc(50% - 0.33em); font-size: min(27vw, 16vh); line-height: 1; }
   #opening .op-s3 .op-center::before { content: ""; position: absolute; left: 50%; top: 55%; width: 150%; height: 420%; transform: translate(-50%, -50%); background: radial-gradient(ellipse, rgba(250,247,238,0.82) 0%, rgba(250,247,238,0.45) 45%, rgba(250,247,238,0) 72%); z-index: -1; opacity: 0; animation: op-fadein 1.8s ease-out 10.1s both; }
   #opening .op-linc { display: block; margin: 0; font-size: 1em; font-weight: 800; letter-spacing: 0.06em; line-height: 1; animation: op-fadeup 1.7s ease-out 10.2s both; }
   #opening .op-pre { position: absolute; left: 0; right: 0; bottom: 100%; margin: 0 0 0.03em; font-size: 0.25em; font-weight: 600; letter-spacing: 0.3em; line-height: 1.2; animation: op-fadeup 1.7s ease-out 10.2s both; }
   #opening .op-below { position: absolute; left: 0; right: 0; top: 100%; margin-top: 0.14em; }
   #opening .op-edition { display: block; margin: 0; font-size: 0.25em; font-weight: 600; letter-spacing: 0.3em; line-height: 1.2; animation: op-fadeup 1.7s ease-out 10.4s both; }
-  #opening .op-rule { width: min(72vw, 440px); height: 1px; margin: min(3vh, 2.8vw) auto; background: linear-gradient(90deg, rgba(18,52,63,0), rgba(18,52,63,0.8) 20%, rgba(18,52,63,0.8) 80%, rgba(18,52,63,0)); transform-origin: center; animation: op-rule 1.3s ease-out 11.2s both; }
-  #opening .op-sub { margin: 0; font-size: min(3.9vw, 2.7vh); font-weight: 500; letter-spacing: 0.12em; line-height: 1.5; animation: op-fadeup 1.7s ease-out 11.5s both; }
+  #opening .op-rule { width: 2.6em; height: 1px; margin: min(3vh, 2.8vw) auto; background: linear-gradient(90deg, rgba(18,52,63,0), rgba(18,52,63,0.8) 20%, rgba(18,52,63,0.8) 80%, rgba(18,52,63,0)); transform-origin: center; animation: op-rule 1.3s ease-out 11.2s both; }
+  #opening .op-sub { margin: 0; font-size: 0.143em; font-weight: 500; letter-spacing: 0.12em; line-height: 1.5; animation: op-fadeup 1.7s ease-out 11.5s both; }
   #opening .op-skip { position: absolute; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 5; border: none; background: none; padding: 10px 6px; font: 500 11px/1 "Zen Kaku Gothic New", sans-serif; letter-spacing: 0.2em; color: #12343F; opacity: 0.55; cursor: pointer; }
   @keyframes op-kb { 0% { transform: scale(1) translate(0,0); } 100% { transform: scale(1.14) translate(-1.5%, -1%); } }
   @keyframes op-veil { 0% { opacity: 0.94; } 6% { opacity: 0.9; } 29% { opacity: 0.88; } 35% { opacity: 0.46; } 43% { opacity: 0.4; } 61% { opacity: 0.36; } 69% { opacity: 0; } 100% { opacity: 0; } }
