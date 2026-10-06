@@ -908,8 +908,8 @@
   #opening .op-sp { position: absolute; left: var(--x); top: var(--y); width: var(--s); height: var(--s); margin: calc(var(--s) / -2) 0 0 calc(var(--s) / -2); border-radius: 50%; background: radial-gradient(circle, rgba(255,252,235,1) 0%, rgba(255,236,180,0.85) 38%, rgba(255,236,180,0) 72%); opacity: 0; animation: op-twinkle var(--t) ease-in-out var(--d) both; pointer-events: none; }
   /* シーン2 */
   #opening .op-s2 { position: absolute; inset: 0; animation: op-fadeout 1s ease-in 9.2s both; }
-  #opening .op-s2 .op-center { top: 32%; animation: op-drift 5.4s linear 5.8s both; }
-  #opening .op-tag { margin: 0 0 min(3vh, 3vw); display: flex; flex-direction: column; align-items: center; gap: min(1.5vh, 1.8vw); font-size: min(4.2vw, 2.7vh); letter-spacing: 0.12em; animation: op-fadeup 1.3s ease-out 5.7s both; }
+  #opening .op-s2 .op-center { top: 50%; animation: op-drift 5.4s linear 5.8s both; }
+  #opening .op-tag { position: absolute; left: 0; right: 0; bottom: 100%; margin: 0 0 min(5.2vh, 6.4vw); display: flex; flex-direction: column; align-items: center; gap: min(3.4vh, 5vw); font-size: min(4.2vw, 2.7vh); letter-spacing: 0.12em; animation: op-fadeup 1.3s ease-out 5.7s both; }
   #opening .op-tag b { background: linear-gradient(135deg, #6E5421, #A98A48 55%, #7B5F26); color: #FBF3DC; font-weight: 600; padding: 0.3em 0.9em 0.3em 1.04em; letter-spacing: 0.14em; }
   #opening .op-title { margin: 0; animation: op-zoom 2.6s cubic-bezier(.2,.7,.2,1) 6s both; }
   #opening .op-title { width: min(90vw, 640px, 78vh); margin: 0 auto; }
