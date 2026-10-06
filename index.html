@@ -436,6 +436,8 @@
   }
   /* Ⅰ・Ⅳは、ほんの少しだけ薄く */
   #poem-overlay-1 .quote-side, #poem-overlay-4 .quote-side { color: rgba(255, 250, 238, 0.32); text-shadow: 0 0 10px rgba(10, 20, 22, 0.22); }
+  /* Ⅲは、1〜3行目の頭の一語(あなた/わたし/あなた)だけ少し濃く */
+  #poem-overlay-3 .quote-side .kw { color: rgba(255, 250, 238, 0.58); text-shadow: 0 0 10px rgba(10, 20, 22, 0.3); }
   /* Ⅱは背景が明るく文字が目立つので、さらに薄く */
   #poem-overlay-2 .quote-side { color: rgba(255, 250, 238, 0.17); text-shadow: 0 0 10px rgba(10, 20, 22, 0.08); }
   .poem-overlay .poem-close {
@@ -1076,7 +1078,7 @@
     <div class="scrim"></div>
     <div class="light light-3"></div>
     <button class="poem-close" onclick="closePoem(3)">✕</button>
-    <p class="quote-side">あなたが<br>わたしで思い悩むならば<br>あなたは　あなたでない<br>わたしは　あなたのものではない。</p>
+    <p class="quote-side"><span class="kw">あなた</span>が<br><span class="kw">わたし</span>で思い悩むならば<br><span class="kw">あなた</span>は　あなたでない<br>わたしは　あなたのものではない。</p>
     <div class="poem-content">
       <p class="roman">Ⅲ</p>
       <p class="quote-text">夏が口をつぐんで<br>まぶしさは<br>逃げたものにも平等にそそぐ</p>
