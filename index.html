@@ -417,6 +417,23 @@
     text-shadow: 0 2px 14px rgba(0,0,0,0.4);
   }
   .poem-overlay .quote-title { font-size: 13px; color: var(--ivory); opacity: 0.85; margin: 0; }
+  /* 右上に、「ぼく-きみ／わたし-あなた」の軸の一節を縦書きでうっすら表示 */
+  .poem-overlay .quote-side {
+    position: absolute;
+    top: 82px;
+    right: 24px;
+    z-index: 1;
+    margin: 0;
+    writing-mode: vertical-rl;
+    font-family: "Shippori Mincho B1", serif;
+    font-size: 16px;
+    line-height: 2.1;
+    letter-spacing: 0.32em;
+    color: rgba(255, 250, 238, 0.38);
+    text-shadow: 0 0 10px rgba(10, 20, 22, 0.28);
+    pointer-events: none;
+    user-select: none;
+  }
   .poem-overlay .poem-close {
     position: absolute;
     top: 20px;
@@ -1031,6 +1048,7 @@
     <div class="scrim"></div>
     <div class="light light-1"></div>
     <button class="poem-close" onclick="closePoem(1)">✕</button>
+    <p class="quote-side">わたしが目覚める</p>
     <div class="poem-content">
       <p class="roman">Ⅰ</p>
       <p class="quote-text">地球の裏側で<br>世界の片隅で<br>いつもの路地裏で<br>わたしが目覚める</p>
@@ -1042,6 +1060,7 @@
     <div class="scrim"></div>
     <div class="light light-2"></div>
     <button class="poem-close" onclick="closePoem(2)">✕</button>
+    <p class="quote-side">ここに一節が入ります</p>
     <div class="poem-content">
       <p class="roman">Ⅱ</p>
       <p class="quote-text">光をもとめて<br>かたちを変える<br>この部屋の植物たち</p>
@@ -1053,6 +1072,7 @@
     <div class="scrim"></div>
     <div class="light light-3"></div>
     <button class="poem-close" onclick="closePoem(3)">✕</button>
+    <p class="quote-side">ここに一節が入ります</p>
     <div class="poem-content">
       <p class="roman">Ⅲ</p>
       <p class="quote-text">夏が口をつぐんで<br>まぶしさは<br>逃げたものにも平等にそそぐ</p>
@@ -1064,6 +1084,7 @@
     <div class="scrim"></div>
     <div class="light light-4"><span class="glow g-wash"></span><span class="glow g-bloom"></span></div>
     <button class="poem-close" onclick="closePoem(4)">✕</button>
+    <p class="quote-side">ぼくたちの腕が櫂になる</p>
     <div class="poem-content">
       <p class="roman">Ⅳ</p>
       <p class="quote-text">ようやく<br>地平線が瞬きをしたころ<br>ぼくたちの腕が櫂になる</p>
