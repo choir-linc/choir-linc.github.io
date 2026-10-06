@@ -969,6 +969,16 @@
 </div><!-- /opening -->
 <script id="opening-script">
 (function () {
+  // 更新(リロード)したときは、前回の位置やURLの#セクションを引き継がず、トップから表示する
+  try {
+    var nav = (performance.getEntriesByType && performance.getEntriesByType('navigation')[0]) || {};
+    if (nav.type === 'reload') {
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      window.addEventListener('load', function () { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); });
+    }
+  } catch (e) {}
   var op = document.getElementById('opening');
   if (!op) return;
   var seen = false;
