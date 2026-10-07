@@ -7,6 +7,7 @@
 <meta name="description" content="2027年2月14日（日）杉並公会堂 大ホール。三角みづ紀（詩）×宮本正太郎（曲）の混声合唱とピアノのための組曲『惑星のままひかりを放つ』を委嘱初演。出演7団体による合唱団LINC第5回演奏会。全席自由2,000円。">
 <link rel="canonical" href="https://choir-linc.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23F7F4EA%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%232F7F88%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23173B44%22/%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2219%22%20fill%3D%22url%28%23g%29%22/%3E%3Cpath%20d%3D%22M13%2040a22%2022%200%200%200%2038%20-4%22%20fill%3D%22none%22%20stroke%3D%22%23C6A55C%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
+<meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#173B44">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="合唱団LINC">
@@ -329,9 +330,6 @@
     row-gap: 0;
   }
   .quick-info .sub-title { display: block; flex-basis: 100%; width: 100%; font-size: 12.5px; color: var(--ink-soft); letter-spacing: 0.04em; line-height: 1.6; margin-top: 2px; }
-  .quick-info .cal-row { display: block; flex-basis: 100%; width: 100%; margin-top: 8px; }
-  .quick-info .cal-link { display: inline-block; white-space: nowrap; font-size: 12px; line-height: 1.4; color: var(--teal-deep); text-decoration: none; border: 1px solid var(--teal-deep); border-radius: 999px; padding: 4px 12px; letter-spacing: 0.03em; }
-  .quick-info .cal-link:hover { background: var(--teal-deep); color: var(--ivory); }
   .quick-info .value-fit { white-space: nowrap; font-size: min(15px, 3.3vw); }
   .quick-info .num-lg,
   .quick-info .num-md {
@@ -912,12 +910,6 @@
       transport_type: 'beacon'
     });
   });
-  // カレンダー追加ボタンのクリックを計測
-  document.addEventListener('click', function (e) {
-    var el = e.target && e.target.closest ? e.target.closest('.cal-link') : null;
-    if (!el) return;
-    gtag('event', 'calendar_add', { event_category: 'engagement', transport_type: 'beacon' });
-  });
 </script>
 <style id="opening-style">
   /* ===== オープニングアニメーション ===== */
@@ -1132,7 +1124,6 @@
           <span class="time-row">
             <span class="time-badge">開場</span><span class="num-md">14:30</span>／<span class="time-badge">開演</span><span class="num-md">15:00</span>
           </span>
-          <span class="cal-row"><a class="cal-link" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=%E5%90%88%E5%94%B1%E5%9B%A3LINC%20%E7%AC%AC5%E5%9B%9E%E6%BC%94%E5%A5%8F%E4%BC%9A%EF%BC%88%E6%9C%9D%E6%97%A5%E4%BD%9C%E6%9B%B2%E8%B3%9E%E5%8F%97%E8%B3%9E%E4%BD%9C%E6%9B%B2%E5%AE%B6%E3%81%9F%E3%81%A1%E3%81%AE%E3%80%81%E3%81%84%E3%81%BE%E3%80%82%EF%BC%89&amp;dates=20270214T150000/20270214T170000&amp;ctz=Asia/Tokyo&amp;location=%E6%9D%89%E4%B8%A6%E5%85%AC%E4%BC%9A%E5%A0%82%20%E5%A4%A7%E3%83%9B%E3%83%BC%E3%83%AB%EF%BC%88%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%9D%89%E4%B8%A6%E5%8C%BA%E4%B8%8A%E8%8D%BB1-23-15%EF%BC%89&amp;details=%E9%96%8B%E5%A0%B4%2014%3A30%EF%BC%8F%E9%96%8B%E6%BC%94%2015%3A00%0A%E5%85%A8%E5%B8%AD%E8%87%AA%E7%94%B1%202%2C000%E5%86%86%0A%E3%83%81%E3%82%B1%E3%83%83%E3%83%88%3A%20https%3A//teket.jp/20056/79229%0A%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88%3A%20https%3A//choir-linc.github.io/" target="_blank" rel="noopener">＋ Googleカレンダーに追加</a></span>
         </p>
       </div>
       <div>
