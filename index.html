@@ -898,6 +898,10 @@
     .ticket-panel p { text-wrap: pretty; }
     .profile-panel .bio { word-break: auto-phrase; }   /* 対応ブラウザでは文節の途中で改行しない */
   }
+  @media (min-width: 641px) {
+    /* 詩の一節: 縦書きの右端までの余白を、横書きの詩の左端までの余白と同じにする */
+    .poem-overlay .quote-side { right: calc((100vw - 640px) / 2 + 28px); }
+  }
   @media (min-width: 900px) {
     /* 詩②: PCでは窓が画面の左側に大きく写るため、光も窓から差し込む位置に合わせる */
     .light-2 { top: -8%; left: -30%; width: 85%; height: 60%; transform-origin: 35% 25%; filter: blur(28px); }
