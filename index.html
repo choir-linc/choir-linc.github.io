@@ -670,6 +670,10 @@
   .profile-photo-rect.has-photo { aspect-ratio: auto; background: none; border: none; display: block; }
   .profile-photo-rect.has-photo img { width: 100%; height: auto; object-fit: initial; object-position: initial; display: block; }
   .carousel-wrap { margin: 0 auto 10px; }
+  /* 団プロフィール: 写真(スライド)は上に固定し、文章だけスクロールする */
+  .profile-panel:has(.carousel-wrap) { padding-top: 0; }
+  .profile-panel:has(.carousel-wrap) .carousel-wrap { position: sticky; top: 0; z-index: 2; margin: 0 -6px 4px; padding: 36px 6px 0; background: var(--card); display: flow-root; }
+  .profile-panel:has(.carousel-wrap) .profile-close { position: sticky; top: 8px; z-index: 3; display: block; margin: 0 -18px -38px auto; }
   .carousel-row { display: flex; align-items: center; gap: 6px; }
   .carousel { position: relative; flex: 1 1 auto; min-width: 0; aspect-ratio: 4 / 3; border-radius: 10px; overflow: hidden; background: var(--ivory); }
   .carousel-track { display: flex; height: 100%; transition: transform 0.35s ease; }
@@ -1552,12 +1556,31 @@
   }
   function closeZoom(e) {
     if (e) e.stopPropagation();
+    carouselStopAuto();
     document.querySelectorAll('.zoomed').forEach(function (el) { el.classList.remove('zoomed'); });
     document.querySelectorAll('.profile-panel.open').forEach(function (el) { el.classList.remove('open'); });
     document.getElementById('zoomBackdrop').classList.remove('show');
     document.body.style.overflow = '';
   }
+  var carouselTimer = null;
+  function carouselStopAuto() {
+    if (carouselTimer) { window.clearInterval(carouselTimer); carouselTimer = null; }
+  }
+  // 団プロフィールを開いたら、数秒ごとに次の写真へ自動で切り替える(矢印・点を触ったら止まる)
+  function carouselStartAuto(id) {
+    carouselStopAuto();
+    var track = document.getElementById('track-' + id);
+    if (!track) return;
+    var count = track.querySelectorAll('.carousel-slide').length;
+    if (count < 2) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    carouselTimer = window.setInterval(function () {
+      carouselState[id] = ((carouselState[id] || 0) + 1) % count;
+      carouselUpdate(id);
+    }, 5000);
+  }
   function toggleProfile(id) {
+    if (document.getElementById('track-' + id)) { carouselState[id] = 0; carouselUpdate(id); carouselStartAuto(id); }
     document.getElementById('profile-' + id).classList.add('open');
     document.getElementById('zoomBackdrop').classList.add('show');
     document.body.style.overflow = 'hidden';
@@ -1592,10 +1615,12 @@
     var count = track.querySelectorAll('.carousel-slide').length;
     var idx = carouselState[id] || 0;
     idx = (idx + dir + count) % count;
+    carouselStopAuto();
     carouselState[id] = idx;
     carouselUpdate(id);
   }
   function carouselGo(id, i) {
+    carouselStopAuto();
     carouselState[id] = i;
     carouselUpdate(id);
   }
