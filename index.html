@@ -672,7 +672,8 @@
   .carousel-wrap { margin: 0 auto 10px; }
   /* 団プロフィール: 写真(スライド)は上に固定し、文章だけスクロールする */
   .profile-panel:has(.carousel-wrap) { padding-top: 0; }
-  .profile-panel:has(.carousel-wrap) .carousel-wrap { position: sticky; top: 0; z-index: 2; margin: 0 -6px 4px; padding: 36px 6px 0; background: var(--card); display: flow-root; }
+  .profile-panel:has(.carousel-wrap) .carousel-wrap { position: sticky; top: 0; z-index: 2; margin: 0 -26px 4px; padding: 36px 26px 0; background: var(--card); display: flow-root; }  /* パネルの横幅いっぱいに背景を敷き、スクロールした文字が写真の横に出ないようにする */
+  .profile-panel:has(.carousel-wrap) .carousel-wrap::after { content: ''; position: absolute; left: 0; right: 0; bottom: -14px; height: 14px; background: linear-gradient(var(--card), transparent); pointer-events: none; }
   .profile-panel:has(.carousel-wrap) .profile-close { position: sticky; top: 8px; z-index: 3; display: block; margin: 0 -18px -38px auto; }
   .carousel-row { display: flex; align-items: center; gap: 6px; }
   .carousel { position: relative; flex: 1 1 auto; min-width: 0; aspect-ratio: 4 / 3; border-radius: 10px; overflow: hidden; background: var(--ivory); }
@@ -894,7 +895,7 @@
     .k { display: inline-block; }                       /* 文節の途中で改行しない */
     .ticket-panel { grid-template-columns: 1fr; gap: 22px; align-items: start; }  /* teketボタンは文章の下に */
     .profile-panel { max-width: 540px; max-height: 90vh; }   /* プロフィールカードを少し広く */
-    .profile-panel:has(.carousel-wrap) .carousel-wrap { max-width: 440px; margin-left: auto; margin-right: auto; }   /* 写真が大きくなりすぎないように */
+    .profile-panel:has(.carousel-wrap) .carousel-row, .profile-panel:has(.carousel-wrap) .carousel-dots { max-width: 440px; margin-left: auto; margin-right: auto; }   /* 写真が大きくなりすぎないように */
     .ticket-panel p { text-wrap: pretty; }
     .profile-panel .bio { word-break: auto-phrase; }   /* 対応ブラウザでは文節の途中で改行しない */
   }
