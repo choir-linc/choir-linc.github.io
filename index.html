@@ -672,8 +672,9 @@
   .carousel-wrap { margin: 0 auto 10px; }
   /* 団プロフィール: 写真(スライド)は上に固定し、文章だけスクロールする */
   .profile-panel:has(.carousel-wrap) { padding-top: 0; }
-  .profile-panel:has(.carousel-wrap) .carousel-wrap { position: sticky; top: 0; z-index: 2; margin: 0 -26px 4px; padding: 36px 26px 0; background: var(--card); display: flow-root; }  /* パネルの横幅いっぱいに背景を敷き、スクロールした文字が写真の横に出ないようにする */
+  .profile-panel:has(.carousel-wrap) .carousel-wrap { position: sticky; top: 0; z-index: 2; margin: 0 -26px 16px; padding: 36px 26px 0; background: var(--card); display: flow-root; }  /* パネルの横幅いっぱいに背景を敷き、スクロールした文字が写真の横に出ないようにする */
   .profile-panel:has(.carousel-wrap) .carousel-wrap::after { content: ''; position: absolute; left: 0; right: 0; bottom: -14px; height: 14px; background: linear-gradient(var(--card), transparent); pointer-events: none; }
+  .profile-panel:has(.carousel-wrap) .carousel-wrap .choir-name { font-size: 16px; margin: 0; padding: 0 0 8px; text-align: center; line-height: 1.4; }   /* 名前も写真と一緒に固定(スクロールしても名前が見える) */
   .profile-panel:has(.carousel-wrap) .profile-close { position: sticky; top: 8px; z-index: 3; display: block; margin: 0 -18px -38px auto; }
   .carousel-row { display: flex; align-items: center; gap: 6px; }
   .carousel { position: relative; flex: 1 1 auto; min-width: 0; aspect-ratio: 4 / 3; border-radius: 10px; overflow: hidden; background: var(--ivory); }
@@ -1472,8 +1473,8 @@
           <button onclick="event.stopPropagation(); carouselGo('choir1',1)"></button>
           <button onclick="event.stopPropagation(); carouselGo('choir1',2)"></button>
         </div>
+        <p class="choir-name">合唱団 senza Nome</p>
       </div>
-      <p class="choir-name">合唱団 senza Nome</p>
       <p class="bio">新潟県上越地区を拠点として1996年8月に結成。現在の活動拠点は主に新潟県長岡市。年に３～４回ほど行う合宿を活動の中心とする合宿型の合唱団です。その利点を生かし関東・関西からも団員が集っています。</p>
       <p class="bio">コロナ禍中、約４年間活動が中断しましたが、2024年5月より活動を再開しています。今回の演奏会の約一ヶ月前には本番に向けて第99回合宿を行います。</p>
       <p class="bio">活動履歴としては、宝塚国際室内合唱コンクールへの出場、合唱団LINC演奏会への出演、４度の主催演奏会開催等を行い、後藤丹氏による「無伴奏混声合唱のための『木にたずねよ』」（全音楽譜出版社刊）、川崎智徳氏による「無伴奏混声合唱のための『生きているということ』」（音楽之友社刊）等の初演を行いました。</p>
@@ -1500,8 +1501,8 @@
           <button onclick="event.stopPropagation(); carouselGo('choir2',2)"></button>
           <button onclick="event.stopPropagation(); carouselGo('choir2',3)"></button>
         </div>
+        <p class="choir-name">アンサンブルSZIA</p>
       </div>
-      <p class="choir-name">アンサンブルSZIA</p>
       <p class="bio">アンサンブルSZIAは、1995年8月に「ア・カペラで歌いたい」という有志数名によって、八王子市で結成された女声合唱団です。</p>
       <p class="bio">団名の「SZIA」（スィア）は、ハンガリー語で「やぁ！こんにちは！」という意味。その名の通り、明るく和やかな雰囲気の中、ア・カペラならではの美しいハーモニーと豊かな表現力を目指して、日々楽しく練習を重ねています。</p>
       <p class="bio">「全日本おかあさんコーラス大会」においては、マーガレット賞や支部大会賞を受賞。2013年には全国大会に出場し、ひまわり賞（優秀賞）を受賞。</p>
@@ -1525,8 +1526,8 @@
           <button onclick="event.stopPropagation(); carouselGo('choir3',1)"></button>
           <button onclick="event.stopPropagation(); carouselGo('choir3',2)"></button>
         </div>
+        <p class="choir-name">Ensemble Evergreen</p>
       </div>
-      <p class="choir-name">Ensemble Evergreen</p>
       <p class="bio">1998年結成。社会人約20名から成る混声合唱団で、主に都内で活動している。ルネサンス期から現代までのヨーロッパ合唱音楽の響きを追求するとともに、世界各地の楽曲の魅力を伝えるべく研鑽を重ねている。邦人作曲家と協力した新作の委嘱にも積極的に取り組み、瑞慶覧尚子作曲「混声合唱曲集 愛あるところに」、千原英喜作曲「混声合唱のための きりしたん天地始之事」等の初演を行う。主催演奏会の開催に加え、これまでにエストニア、グァテマラ、台湾、中国及び沖縄等への演奏旅行を行い、好評を博すとともに、現地の合唱団等との交流を重ねている。</p>
     </div>
     <div class="profile-panel" id="profile-choir4">
@@ -1546,8 +1547,8 @@
           <button class="active" onclick="event.stopPropagation(); carouselGo('choir4',0)"></button>
           <button onclick="event.stopPropagation(); carouselGo('choir4',1)"></button>
         </div>
+        <p class="choir-name">Ensemble Polano</p>
       </div>
-      <p class="choir-name">Ensemble Polano</p>
       <p class="bio">Ensemble Polanoは、文京区「文の京の第九」で仁階堂先生と出会った仲間を中心に結成された混声合唱団。宮沢賢治『ポラーノの広場』の、シロツメクサの道の先にある”誰もが音楽を楽しめる特別な広場”のような場所を目指し、幅広い年代のメンバーがルネサンスから現代音楽まで挑戦しながら活動している。</p>
       <p class="bio">現在は東京都・北区・文京区の合唱祭に参加し、２年に一度の単独演奏会の開催、各種コンクールでの受賞、委嘱初演なども重ね、創設19年目の今も仲間たちと共に歌を育て続けている。</p>
     </div>
@@ -1572,8 +1573,8 @@
           <button onclick="event.stopPropagation(); carouselGo('choir5',2)"></button>
           <button onclick="event.stopPropagation(); carouselGo('choir5',3)"></button>
         </div>
+        <p class="choir-name">越の国室内合唱団 VOX ORATTA</p>
       </div>
-      <p class="choir-name">越の国室内合唱団 VOX ORATTA</p>
       <p class="bio">「ORATTA」とは「私たち」という意味の方言をラテン語に転用したもの。</p>
       <p class="bio">広い地域から合唱人が集まり、自分たちにしか歌えない歌声を同時代の人々に届けようという願いを込めて東日本大震災直後の2011年4月に活動を開始。全国で活躍中の仁階堂孝氏を常任指揮者に迎え、コンクールや地域の合唱祭への参加の他、小中学校訪問演奏など通じて、充実した音響の実現に向け活動している。</p>
       <p class="bio">2026年11月、長岡リリックホールにて創団15周年記念演奏会を開催し、後藤丹作曲「高田一葉の詩による合唱曲集『真っ白な紙に』」を初演する予定である。</p>
@@ -1601,8 +1602,8 @@
           <button onclick="event.stopPropagation(); carouselGo('choir6',3)"></button>
           <button onclick="event.stopPropagation(); carouselGo('choir6',4)"></button>
         </div>
+        <p class="choir-name">インカレ合唱団 KIRARA☆Mixed</p>
       </div>
-      <p class="choir-name">インカレ合唱団 KIRARA☆Mixed</p>
       <p class="bio">2013年3月13日設立。</p>
       <p class="bio">学校や学年の垣根を越えて合唱を楽しみ、みんながキラキラと輝ける音楽を目指して活動しています。普段の練習では1人1人が課題に対して一生懸命に取り組み、少人数編成ならではの息のあった密度の高い合唱をできるように努力しています。</p>
       <p class="bio">活動場所は主に東京都、埼玉県で練習をしていて、埼玉県合唱祭、埼玉県合唱コンクールなどに向けて練習しています。</p>
@@ -1626,8 +1627,8 @@
           <button onclick="event.stopPropagation(); carouselGo('choir7',1)"></button>
           <button onclick="event.stopPropagation(); carouselGo('choir7',2)"></button>
         </div>
+        <p class="choir-name">Sparkling a Live!</p>
       </div>
-      <p class="choir-name">Sparkling a Live!</p>
       <p class="bio">Sparkling a Live!（通称スパクリ）は、2017年6月、KIRARA☆Mixedの卒業生数名と、その呼びかけに応じて集まった仲間によって設立されました。</p>
       <p class="bio">演奏理念は「きらめきと躍動に満ちたライブパフォーマンス」。時にはさまざまな演出も取り入れながら、お聴きくださる皆様の心、演奏する私たち自身の心、そして会場全体をきらめかせるステージを目指し、試行錯誤を重ねています。</p>
       <p class="bio">2024年、第25回全国「花嫁人形」合唱コンクール最優秀賞受賞。</p>
